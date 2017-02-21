@@ -35,9 +35,8 @@ def giveConsumption():
 
 def doClaim():
     claimStamp = datetime.datetime.now()
-    print((claimStamp)+" Claiming!")
+    print(str(claimStamp)+" Claiming!")
     claim = requests.post(baseUrl+"/claim", headers=reqHeaders)
-    print(str(claim.json()))
 
 def checkAPI():
     checkStamp = datetime.datetime.now()
@@ -49,7 +48,8 @@ def checkAPI():
     resetClaimTS = round(resetClaim.timestamp())
     resetTS = round(resetTime.timestamp()) 
     curTS = round(time.time())
-    if (curTS - resetClaimTS > 0):
+    if (curTS - resetClaimTS > 3600):
+        # Langer, want dan kunnen we afaik extra puntjes verzamelen
         doClaim()
     if (curTS - resetTS > 0):
         checkStamp = datetime.datetime.now()
