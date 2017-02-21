@@ -62,7 +62,7 @@ def checkAPI():
         print(str(checkStamp)+" Total Score: "+str(jsonObj['game']['score']))
         return True
     else:
-        return False
+        return resetTS
 
 def main():
     print("Norbie's Kamergotchi Bot v1.11")
@@ -77,8 +77,13 @@ def main():
             checkTrue = checkAPI()
             if checkTrue == True:
                 break
-            print("Not ready. Sleeping for "+str(delayCheck))
-            time.sleep(delayCheck)
+            else:
+                print("Not ready. Sleeping until "+str(checkTrue))
+                curTime = 0
+                while curTime < checkTrue:
+                    time.sleep(1)
+                    curTime = datetime.datetime.now()
+                    curTime = round(curTime.timestamp())
         giveConsumption()
         
 if __name__ == "__main__":
