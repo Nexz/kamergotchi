@@ -57,6 +57,9 @@ def checkAPI():
         print(str(checkStamp)+" Attention: "+str(jsonObj['game']['current']['attention']))
         print(str(checkStamp)+" Food: "+str(jsonObj['game']['current']['food']))
         print(str(checkStamp)+" Knowledge: "+str(jsonObj['game']['current']['knowledge']))
+        print(str(checkStamp)+"------------")
+        print(str(checkStamp)+" DayScore: "+str(jsonObj['game']['dayScore']))
+        print(str(checkStamp)+" Total Score: "+str(jsonObj['game']['score']))
         return True
     else:
         return False
