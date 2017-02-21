@@ -52,12 +52,17 @@ def checkAPI():
     if (curTS - resetClaimTS > 0):
         doClaim()
     if (curTS - resetTS > 0):
+        checkStamp = datetime.datetime.now()
+        print(str(checkStamp)+" Health: "+str(jsonObj['game']['health']))
+        print(str(checkStamp)+" Attention: "+str(jsonObj['game']['current']['attention']))
+        print(str(checkStamp)+" Food: "+str(jsonObj['game']['current']['food']))
+        print(str(checkStamp)+" Knowledge: "+str(jsonObj['game']['current']['knowledge']))
         return True
     else:
         return False
 
 def main():
-    print("Norbie's Kamergotchi Bot v1.1")
+    print("Norbie's Kamergotchi Bot v1.11")
     print("https://www.norbert.in/")
     print("-----------------------------")
     print("We're currently impersonating X-PLAYER "+xplayer)
